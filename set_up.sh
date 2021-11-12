@@ -21,7 +21,7 @@ head -n -1 ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim > ~/.vim/plugged/vi
 mv ~/.vim/plugged/vim-ripgrep/plugin/temp.vim ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim   
 
 sed -i '$acommand! RgRoot :call s:RgShowRoot()' ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim
-if [-d " ./undodir "];then
+if [ -d "./undodir" ];then
    echo "skip mkdir undodir"
 else   
     mkdir undodir
