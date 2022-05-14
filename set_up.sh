@@ -16,17 +16,8 @@ echo "Installing plugins"
 vim vimrc +source% +PlugInstall +source% +qall
 echo "Plugin installed"
 
-# delete then change the problematic line in vim-ripgrep pkg
-head -n -1 ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim > ~/.vim/plugged/vim-ripgrep/plugin/temp.vim
-mv ~/.vim/plugged/vim-ripgrep/plugin/temp.vim ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim   
-
-sed -i '$acommand! RgRoot :call s:RgShowRoot()' ~/.vim/plugged/vim-ripgrep/plugin/vim-ripgrep.vim
-if [ -d "./undodir" ];then
-   echo "skip mkdir undodir"
-else   
-    mkdir undodir
-fi
-
+cd ~/.vim/plugged/YouCompleteMe
+python3 install.py --ts-completer
 echo "READY TO VIM"
 
 while true; do
