@@ -5,25 +5,24 @@
 set -e
 
 # install vim-plug 
-if [ -d "./autoload" ];then
-   echo "Already exist"
-else 
-   echo "clonning vim-plug repo"
-   curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
- https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-fi
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 echo "Installing plugins"
-vim vimrc +source% +PlugInstall +source% +qall
+nvim vimrc +source% +PlugInstall +source% +qall
 echo "Plugin installed"
 
-cd ~/.vim/plugged/YouCompleteMe
-python3 install.py --ts-completer
-echo "READY TO VIM"
+#use same .vimrc for neovim
+touch ~/.config/nvim/init.vim
+echo 'set runtimepath^=~/vim runtimepath+=~/.vim/after
+let &packpath = &runtimepath
+source ~/.vim/vimrc' > ~/.config/nvim/init.vim
+
+echo "READY TO NEOVIM"
 
 while true; do
     read -p "Initiate Vim y/n?" yn
     case $yn in
-        [Yy]* ) vim; break;;
+        [Yy]* ) nvim; break;;
         [Nn]* ) exit;;
         * ) echo "Please answer yes or no.";;
     esac

@@ -1,4 +1,4 @@
-syntax on
+syntax enable
 
 set tabstop=4 softtabstop=4
 set expandtab
@@ -16,16 +16,16 @@ set colorcolumn=80
 
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox'
 Plug 'tpop/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
-Plug 'ycm-core/YouCompleteMe'
 Plug 'pangloss/vim-javascript'
-Plug 'rust-lang/rust.vim'
-
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'prettier/vim-prettier', { 'do': 'npm install --frozen-lockfile --production' }
 call plug#end()
 set background=dark
 
