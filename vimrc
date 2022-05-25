@@ -41,6 +41,7 @@ nnoremap <leader>j :wincmd j<CR>
 nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 
+nnoremap <leader>p :Neoformat <CR>
 
 nnoremap <silent> <Leader>+ : vertical resize +5 <CR>
 nnoremap <silent> <Leader>- : vertical resize -5 <CR>
