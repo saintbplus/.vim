@@ -4,6 +4,8 @@
 #exit on error
 set -e
 
+# remove previuos vim plugin
+rm -rf ~/.vim/autoload
 # install vim-plug 
 sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -12,6 +14,8 @@ nvim vimrc +source% +PlugInstall +source% +qall
 echo "Plugin installed"
 
 #use same .vimrc for neovim
+# create directory if it does not exist
+mkdir -p ~./config/nvim
 touch ~/.config/nvim/init.vim
 echo 'set runtimepath^=~/vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
