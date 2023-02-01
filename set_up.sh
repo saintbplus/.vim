@@ -21,9 +21,6 @@ echo 'set runtimepath^=~/vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 source ~/.vim/vimrc' > ~/.config/nvim/init.vim
 
-##initiate coq plugin
-nvim +COQdeps
-
 echo "READY TO NEOVIM"
 
 while true; do
